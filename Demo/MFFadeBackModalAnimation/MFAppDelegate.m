@@ -21,7 +21,7 @@
     } else {
         self.viewController = [[MFViewController alloc] initWithNibName:@"MFViewController_iPad" bundle:nil];
     }
-    self.window.rootViewController = self.viewController;
+    self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:self.viewController];
     [self.window makeKeyAndVisible];
     return YES;
 }

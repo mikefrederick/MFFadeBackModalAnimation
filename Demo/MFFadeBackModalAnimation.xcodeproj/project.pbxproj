@@ -24,6 +24,9 @@
 		279CE79E17157F550056366A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 279CE77617157F540056366A /* Foundation.framework */; };
 		279CE7A617157F550056366A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 279CE7A417157F550056366A /* InfoPlist.strings */; };
 		279CE7A917157F550056366A /* MFFadeBackModalAnimationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 279CE7A817157F550056366A /* MFFadeBackModalAnimationTests.m */; };
+		279CE7B61715813F0056366A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 279CE7B51715813F0056366A /* QuartzCore.framework */; };
+		279CE7B91715837B0056366A /* MFModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 279CE7B81715837B0056366A /* MFModalViewController.m */; };
+		279CE7C01718342F0056366A /* UIViewController+MFFadeBackModalAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 279CE7BF1718342F0056366A /* UIViewController+MFFadeBackModalAnimation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +63,11 @@
 		279CE7A517157F550056366A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		279CE7A717157F550056366A /* MFFadeBackModalAnimationTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFFadeBackModalAnimationTests.h; sourceTree = "<group>"; };
 		279CE7A817157F550056366A /* MFFadeBackModalAnimationTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFFadeBackModalAnimationTests.m; sourceTree = "<group>"; };
+		279CE7B51715813F0056366A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		279CE7B71715837B0056366A /* MFModalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFModalViewController.h; sourceTree = "<group>"; };
+		279CE7B81715837B0056366A /* MFModalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFModalViewController.m; sourceTree = "<group>"; };
+		279CE7BE1718342F0056366A /* UIViewController+MFFadeBackModalAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MFFadeBackModalAnimation.h"; sourceTree = "<group>"; };
+		279CE7BF1718342F0056366A /* UIViewController+MFFadeBackModalAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MFFadeBackModalAnimation.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				279CE7B61715813F0056366A /* QuartzCore.framework in Frameworks */,
 				279CE77517157F540056366A /* UIKit.framework in Frameworks */,
 				279CE77717157F540056366A /* Foundation.framework in Frameworks */,
 				279CE77917157F540056366A /* CoreGraphics.framework in Frameworks */,
@@ -89,6 +98,7 @@
 		279CE76817157F540056366A = {
 			isa = PBXGroup;
 			children = (
+				279CE7BD1718342F0056366A /* UIViewController+MFFadeBackModalAnimation */,
 				279CE77A17157F540056366A /* MFFadeBackModalAnimation */,
 				279CE7A117157F550056366A /* MFFadeBackModalAnimationTests */,
 				279CE77317157F540056366A /* Frameworks */,
@@ -108,6 +118,7 @@
 		279CE77317157F540056366A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				279CE7B51715813F0056366A /* QuartzCore.framework */,
 				279CE77417157F540056366A /* UIKit.framework */,
 				279CE77617157F540056366A /* Foundation.framework */,
 				279CE77817157F540056366A /* CoreGraphics.framework */,
@@ -126,6 +137,8 @@
 				279CE78F17157F540056366A /* MFViewController_iPhone.xib */,
 				279CE79217157F540056366A /* MFViewController_iPad.xib */,
 				279CE77B17157F540056366A /* Supporting Files */,
+				279CE7B71715837B0056366A /* MFModalViewController.h */,
+				279CE7B81715837B0056366A /* MFModalViewController.m */,
 			);
 			path = MFFadeBackModalAnimation;
 			sourceTree = "<group>";
@@ -161,6 +174,16 @@
 				279CE7A417157F550056366A /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		279CE7BD1718342F0056366A /* UIViewController+MFFadeBackModalAnimation */ = {
+			isa = PBXGroup;
+			children = (
+				279CE7BE1718342F0056366A /* UIViewController+MFFadeBackModalAnimation.h */,
+				279CE7BF1718342F0056366A /* UIViewController+MFFadeBackModalAnimation.m */,
+			);
+			name = "UIViewController+MFFadeBackModalAnimation";
+			path = "../UIViewController+MFFadeBackModalAnimation";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -278,6 +301,8 @@
 				279CE78117157F540056366A /* main.m in Sources */,
 				279CE78517157F540056366A /* MFAppDelegate.m in Sources */,
 				279CE78E17157F540056366A /* MFViewController.m in Sources */,
+				279CE7B91715837B0056366A /* MFModalViewController.m in Sources */,
+				279CE7C01718342F0056366A /* UIViewController+MFFadeBackModalAnimation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -399,6 +424,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MFFadeBackModalAnimation/MFFadeBackModalAnimation-Prefix.pch";
 				INFOPLIST_FILE = "MFFadeBackModalAnimation/MFFadeBackModalAnimation-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -410,6 +436,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MFFadeBackModalAnimation/MFFadeBackModalAnimation-Prefix.pch";
 				INFOPLIST_FILE = "MFFadeBackModalAnimation/MFFadeBackModalAnimation-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -468,6 +495,7 @@
 				279CE7AE17157F550056366A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		279CE7AF17157F550056366A /* Build configuration list for PBXNativeTarget "MFFadeBackModalAnimationTests" */ = {
 			isa = XCConfigurationList;
@@ -476,6 +504,7 @@
 				279CE7B117157F550056366A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
