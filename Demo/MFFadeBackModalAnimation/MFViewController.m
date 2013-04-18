@@ -15,10 +15,6 @@
 
 @implementation MFViewController
 
-- (UIView *)fadeBackView {
-    return self.parentViewController.view;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
