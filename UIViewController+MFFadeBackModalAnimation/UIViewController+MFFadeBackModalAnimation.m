@@ -13,9 +13,9 @@ static const CGFloat animationDuration = 0.5f;
 
 @implementation UIViewController (MFFadeBackModalAnimation)
 
-- (UIView *)fadeBackView {
-    return self.view;
-}
+
+#pragma mark -
+#pragma mark - External API
 
 - (void)presentViewControllerWithFadebackAnimation:(UIViewController *)controller completion:(void (^)(void))completion {
     [self presentViewController:controller animated:YES completion:nil];
@@ -31,6 +31,10 @@ static const CGFloat animationDuration = 0.5f;
     [self dismissViewControllerAnimated:YES completion:completion];
     [presentingController presentingViewControllerPerformFadeInAnimationCompletion:nil];
 }
+
+
+#pragma mark -
+#pragma mark - Internal API
 
 // THIS IS CALLED ON THE PRESENTING VIEW CONTROLLER
 - (void)presentingViewControllerPerformFadeBackAnimationCompletion:(void (^)(void))completion {
@@ -66,19 +70,18 @@ static const CGFloat animationDuration = 0.5f;
 }
 
 
+#pragma mark -
+#pragma mark - Transforms
+
 - (void)addSublayerTranform {
     CATransform3D transform = CATransform3DIdentity;
     transform.m34 = 1.0f / -300.0f;
     self.fadeBackView.superview.layer.sublayerTransform = transform;
 }
 
-- (void)setupFadeBackViewForAnimation {
-    [self setAnchorPoint:CGPointMake(0.5f, 1.0f) forView:self.fadeBackView];
-    self.fadeBackView.layer.borderWidth = 1;
-    self.fadeBackView.layer.borderColor = [UIColor clearColor].CGColor;
-    self.fadeBackView.layer.shouldRasterize = YES;
-    
-    [self addSublayerTranform];
+- (void)resetTransforms {
+    self.fadeBackView.layer.transform = CATransform3DIdentity;
+    self.fadeBackView.superview.layer.sublayerTransform = CATransform3DIdentity;
 }
 
 - (void)performTiltBackEffect {
@@ -91,9 +94,21 @@ static const CGFloat animationDuration = 0.5f;
     self.fadeBackView.layer.transform = CATransform3DIdentity;
 }
 
-- (void)resetTransforms {
-    self.fadeBackView.layer.transform = CATransform3DIdentity;
-    self.fadeBackView.superview.layer.sublayerTransform = CATransform3DIdentity;
+
+#pragma mark -
+#pragma mark - Helpers
+
+- (UIView *)fadeBackView {
+    return self.view;
+}
+
+- (void)setupFadeBackViewForAnimation {
+    [self setAnchorPoint:CGPointMake(0.5f, 1.0f) forView:self.fadeBackView];
+    self.fadeBackView.layer.borderWidth = 1;
+    self.fadeBackView.layer.borderColor = [UIColor clearColor].CGColor;
+    self.fadeBackView.layer.shouldRasterize = YES;
+    
+    [self addSublayerTranform];
 }
 
 -(void)setAnchorPoint:(CGPoint)anchorPoint forView:(UIView *)view {
@@ -104,12 +119,8 @@ static const CGFloat animationDuration = 0.5f;
     oldPoint = CGPointApplyAffineTransform(oldPoint, view.transform);
     
     CGPoint position = view.layer.position;
-    
-    position.x -= oldPoint.x;
-    position.x += newPoint.x;
-    
-    position.y -= oldPoint.y;
-    position.y += newPoint.y;
+    position.x = position.x - oldPoint.x + newPoint.x;
+    position.y = position.y - oldPoint.y + newPoint.y;
     
     view.layer.position = position;
     view.layer.anchorPoint = anchorPoint;
