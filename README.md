@@ -1,6 +1,6 @@
 #MFFadeBackModalAnimation
 
-MFFadeBackModalAnimation is a UIViewController category that attempts to mimic the "tilt back" modal presentation animation that can be seen in the Gmail app when composing a new message.
+MFFadeBackModalAnimation is a UIViewController category that attempts to mimic the "tilt back" modal presentation animation that can be seen in the Gmail app when composing a new message. The category wraps around the native API for presenting and dismissing view controllers, so it should integrate well with existing apps.
 
 =======
 
